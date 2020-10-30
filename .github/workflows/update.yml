@@ -1,11 +1,14 @@
-name: Manifest workflow
+name: Push manifest to main repository
 
-# Controls when the action will run. Triggers the workflow on push or pull request events but 
+# Controls when the action will run. Triggers the workflow on push or pull request events but
 # only for the main branch
-on: 
+on:
   push:
     branches:
       - master
+    paths:
+      # Trigger on change in following path
+      - 'manifest.json'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
