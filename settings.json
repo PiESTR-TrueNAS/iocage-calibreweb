@@ -1,5 +1,5 @@
 {
-  "servicerestart": "service calibreweb restart",
+  "servicerestart": "/CalibreWebRc/CPS_Service restart",
 	"serviceget": "/usr/local/bin/calibrewebget",
 	"serviceset": "/usr/local/bin/calibrewebset",
   "options": {

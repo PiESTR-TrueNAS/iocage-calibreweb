@@ -1,0 +1,30 @@
+#!/bin/sh
+
+pidfile="/CalibreWebRc/CPS.pid"
+
+case $1 in
+
+  restart)
+    if [ -f $pidfile ]; then
+      kill -9 $(cat $pidfile)
+    fi
+    nohup python /CalibreWeb/cps.py 1>/dev/null 2>&1 & echo $! > /CalibreWebRc/CPS.pid
+    ;;
+
+  start)
+    if [ -f $pidfile ]; then
+      echo "Service is already running"
+      exit 0
+    fi
+    nohup python /CalibreWeb/cps.py 1>/dev/null 2>&1 & echo $! > /CalibreWebRc/CPS.pid
+    ;;
+
+  stop)
+    if [ ! -f $pidfile ]; then
+      echo "Service is already stopped or pid not found"
+      exit 0
+    fi
+    kill -9 $(cat $pidfile)
+    ;;
+
+esac
