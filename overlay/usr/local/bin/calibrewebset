@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Set configuration option
+
+StatusUpdate() {
+  if [ $? -eq 0 ]; then
+    echo "Configuration change: OK"
+  else
+    echo "Error updating configuration" > &2
+    exit 1
+  fi
+}
+
+case $1 in
+  library)
+    sqlite3 /CalibreWeb/app.db "UPDATE settings SET config_calibre_dir = '$2';"
+  port)
+    sqlite3 /CalibreWeb/app.db "UPDATE settings SET config_port = $2;"
+    StatusUpdate
+    ;;
+  *)
+    echo "Unknown option" > &2
+    exit 1
+    ;;
+esac

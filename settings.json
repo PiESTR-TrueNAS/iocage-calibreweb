@@ -1,0 +1,22 @@
+{
+  "servicerestart": "service calibreweb restart",
+	"serviceget": "/usr/local/bin/calibrewebget",
+	"serviceset": "/usr/local/bin/calibrewebset",
+  "options": {
+    "library": {
+      "type": "string",
+      "name": "Calibre library directory",
+      "description": "Location of the Calibre library",
+      "default": "/mnt/Library",
+      "requirerestart": true
+    },
+    "port": {
+      "type": "int",
+      "name": "WebUI Port",
+      "description": "Port for Calibre Web portal",
+      "range": "1024-32000",
+      "default": "8083",
+      "requirerestart": true
+    }
+  }
+}

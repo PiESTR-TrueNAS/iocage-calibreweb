@@ -1,0 +1,7 @@
+{
+  "adminportal": "http://%%IP%%:%%P%%",
+  "adminportal_placeholders": {
+    "%%P%%": "port"
+  },
+  "docurl": "https://github.com/janeczku/calibre-web"
+}

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Get configuration setting
+case $1 in
+  library)
+    sqlite3 /CalibreWeb/app.db "SELECT config_calibre_dir FROM settings;"
+  port)
+    sqlite3 /CalibreWeb/app.db "SELECT config_port FROM settings;"
+    ;;
+  *)
+    echo "Unknown option" > &2
+    exit 1
+    ;;
+esac
